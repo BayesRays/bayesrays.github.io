@@ -47,9 +47,7 @@
         <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
             <h2 class="col-md-12 text-center" id="title">
                 <b>Bayes' Rays</b>: Uncertainty Quantification for Neural Radiance Fields<br>
-<!--                 <small>-->
-<!--                    ICRA 2023 -->
-<!--                </small>-->
+
             </h2>
         </div>
         <div class="row" id="author-row" style="margin:auto;">
@@ -252,114 +250,111 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
                   Uncertainty Quantification results: We show correlation of uncertainty to absolute error of given NeRF in depth. Lower the area under the sparsification plot shows higher correlation. Please use the buttons for comparison of pixel ranks in sparsification process, between methods.
 
         </div>
-        <table>
-		    <tr>
+<table style="width: 100%; text-align: center;">
+  <tr >
+    <td style="vertical-align: middle; padding: 10px; width: calc(8/12*25%);">
+      <div style="position: relative; display: inline-block;">
+        <img id="right-image" src="img/error.png" style="max-width: 100%; height: auto;">
+      </div>
+    </td>
+    <td style="vertical-align: middle; padding: 10px; width: calc(8/12*25%);">
+      <div style="position: relative; display: inline-block;">
+        <img id="centr-image" src="img/ours.png"  style="max-width: 100%; height: auto;">
+      </div>
+    </td>
+    <td style="vertical-align: middle; padding: 10px; width: calc(8/12*25%);">
+      <div style="position: relative; display: inline-block;">
+        <img id="left-img" src="img/rgb1.png"   style="max-width: 100%; height: auto;">
+      </div>
+    </td>
+    <td style="vertical-align: middle; padding: 10px; width: calc(8/12*25%);">
+      <div style="position: relative; display: inline-block;">
+        <img id="plt" src="img/plot.png"   style="max-width: 100%; height: auto;">
+      </div>
+    </td>
+  </tr>
+   <tr >
+    <td style="vertical-align: middle; text-align: center;">
+      <button onclick="changeImage('error')" style="transform: translateY(-150%);">Depth Error</button>
+      <button onclick="changeImage('ensemble')" style="transform: translateY(-150%);">Ensemble</button>
+    </td>
+    <td style=" vertical-align: middle; text-align: center;">
+      <button onclick="changeImage('ours')" style="transform: translateY(-150%);">Ours</button>
+      <button onclick="changeImage('cf')" style="transform: translateY(-150%);">CF-NeRF</button>
+      <button onclick="changeImage('ensemble2')" style="transform: translateY(-150%);">Ensemble</button>
+    </td>
 
-            <td>
-			   <img id="centr-image" src="img/error.png"  width="80%" style="margin-top: 8%; margin-bottom: 5%;" >
-                <div class="buttons" style="margin-left: 9%">
-                <button onclick="changeImage('error')">Depth Error</button>
-                    <button onclick="changeImage('ensemble')">Ensemble</button></div>
-            </td>
-            <td>
-              <img id="right-image" src="img/ours.png"  width="80%" style="margin-top: 8%; margin-bottom: 5%;margin-left: -10%">
-              <div class="buttons" style="margin-left: -8.5%">
-                <button onclick="changeImage('ours')">Ours</button>
-                <button onclick="changeImage('cf')">CF-NeRF</button>
-                <button onclick="changeImage('ensemble2')">Ensemble</button>
-              </div>
-
-           </td>
-
-
-
-            <td>
-			   <img id="left-img" src="img/rgb1.png"  width="103%" style="margin-top: 11%; margin-bottom: 10%;margin-left: -20%" >
-            </td>
-
-            <td>
-            <img id="right-img" src="img/plot.png"  width="105%" style="margin-left: -10%" >
-           </td>
-
-
-
-            </tr>
-        </table>
+  </tr>
+</table>
 		<div class="text-justify">
                   Clean-up results:
                     
                 </div>
 
 		<table>
-		    <tr >
-                <td>
-			<td>
-
-			   <video id="left-video"   width="100%" loop playsinline autoPlay muted controls>
-                <source src="video/rgb_base.mp4"  type="video/mp4">
-              </video>
-              <div class="buttons">
+    <tr>
+        <td style="width: calc(8/12*16.67%);">
+            <video id="left-video" width="100%" height="auto" loop playsinline autoplay muted controls>
+                <source src="video/rgb_base.mp4" type="video/mp4">
+            </video>
+            <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
                 <button onclick="changeVideo('rgb_base')">Original</button>
                 <button onclick="changeVideo('rgb_nb')">Nerfbuster</button>
-              </div>
+            </div>
+        </td>
 
-           </td>
-            <td>
-                    <video id="right-video"  width="97.5%" loop playsinline autoPlay muted controls>
-                    <source src="video/uncertainty.mp4" type="video/mp4">
-                  </video>
-                  <div class="buttons">
-                    <button onclick="changeVideo('uncertainty')">Uncertainty</button>
-                    <button onclick="changeVideo('rgb_clean')">&nbsp Clean &nbsp</button>
-                  </div>
-            </td>
-                </td>
-            <td>
-            <td>
-
-			   <video id="left-video-2"   width="100%" loop playsinline autoPlay muted controls>
-                <source src="video/rgb_base_2.mp4"  type="video/mp4">
-              </video>
-              <div class="buttons">
+        <td style="width: calc(8/12*16.67%);">
+            <video id="right-video" width="100%" height="auto" loop playsinline autoplay muted controls>
+                <source src="video/uncertainty.mp4" type="video/mp4">
+            </video>
+            <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
+                <button onclick="changeVideo('uncertainty')">Uncertainty</button>
+                <button onclick="changeVideo('rgb_clean')">Clean</button>
+            </div>
+        </td>
+        <td style="width: 2%;"></td> <!-- Add some space between columns -->
+        <td style="width: calc(8/12*16.67%);">
+            <video id="left-video-2" width="100%" height="auto" loop playsinline autoplay muted controls>
+                <source src="video/rgb_base_2.mp4" type="video/mp4">
+            </video>
+            <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
                 <button onclick="changeVideo2('rgb_base')">Original</button>
                 <button onclick="changeVideo2('rgb_nb')">Nerfbuster</button>
-              </div>
+            </div>
+        </td>
 
-           </td>
-            <td>
-                    <video id="right-video-2" width="97.5%" loop playsinline autoPlay muted controls>
-                    <source src="video/uncertainty_2.mp4" type="video/mp4">
-                  </video>
-                  <div class="buttons">
-                    <button onclick="changeVideo2('uncertainty')">Uncertainty</button>
-                    <button onclick="changeVideo2('rgb_clean')">&nbsp Clean &nbsp</button>
-                  </div>
-            </td>
-            </td>
-            <td>
-            <td>
-			   <video id="left-video-3"  width="100%" loop playsinline autoPlay muted controls>
-                <source src="video/rgb_base_3.mp4"  type="video/mp4">
-              </video>
-              <div class="buttons">
+        <td style="width: calc(8/12*16.67%);">
+            <video id="right-video-2" width="100%" height="auto" loop playsinline autoplay muted controls>
+                <source src="video/uncertainty_2.mp4" type="video/mp4">
+            </video>
+            <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
+                <button onclick="changeVideo2('uncertainty')">Uncertainty</button>
+                <button onclick="changeVideo2('rgb_clean')">Clean</button>
+            </div>
+        </td>
+        <td style="width: 2%;"></td> <!-- Add some space between columns -->
+        <td style="width: calc(8/12*16.67%); ">
+            <video id="left-video-3" width="100%" height="auto" loop playsinline autoplay muted controls>
+                <source src="video/rgb_base_3.mp4" type="video/mp4">
+            </video>
+            <div class="buttons" style="vertical-align: middle; padding-left: 4%">
                 <button onclick="changeVideo3('rgb_base')">Original</button>
                 <button onclick="changeVideo3('rgb_nb')">Nerfbuster</button>
-              </div>
+            </div>
+        </td>
 
-           </td>
-            <td>
-                    <video id="right-video-3" width="97.5%" loop playsinline autoPlay muted controls>
-                    <source src="video/uncertainty_3.mp4" type="video/mp4">
-                  </video>
-                  <div class="buttons">
-                    <button onclick="changeVideo3('uncertainty')">Uncertainty</button>
-                    <button onclick="changeVideo3('rgb_clean')">&nbsp Clean &nbsp</button>
-                  </div>
-            </td>
-            </td>
-		    </tr >
+        <td style="width: calc(8/12*16.67%);">
+            <video id="right-video-3" width="100%" height="auto" loop playsinline autoplay muted controls>
+                <source src="video/uncertainty_3.mp4" type="video/mp4">
+            </video>
+            <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
+                <button onclick="changeVideo3('uncertainty')">Uncertainty</button>
+                <button onclick="changeVideo3('rgb_clean')">Clean</button>
+            </div>
+        </td>
+    </tr>
+</table>
 
-		</table>
 		<table width="100%" style="table-layout:fixed"><tr><td style="text-align:center" width="33%">Picnic</td><td style="text-align:center" width="33%">Pikachu</td><td style="text-align:center" width="33%">Century</td></tr></table>
            	
         	<br>
