@@ -217,40 +217,49 @@ Neural Radiance Fields (NeRFs) have shown promise in applications like view synt
                     But wait ...
                 </h3>
                 <div class="text-justify">
-                    As we already have a fully converged NeRF, we know θ* = 0 is a local minimum for the negative log likelihood loss posed above. Knowing that, we can utilize Laplace Approximation at the local minima of a negative log likelihood function!
+                     As we already have a fully converged NeRF, we know θ* = 0 is a local minimum for the negative log likelihood loss posed above. Knowing that, we can utilize Laplace Approximation at the local minima of a negative log likelihood function!
                     Laplace Approximation states that with the help of a second order Taylor expansion, the probability distribution described by the negative log likelihood function can be approximated with a Gaussian distribution at the point of minimum. The Covariance matrix of this distribution is then equal to inverse negative Hessian of NLL function at the point of minimum.
                     We show that by using Fisher Information, the Hessian of loss for the already-converged NeRF can be readily computed using 1st order gradients. Further, we show that the resulting Hessian is sparse enough to allow for a diagonal approximation, leading to fast and efficient inversion of the Hessian. Finally, the Covariance matrix of the deformation gird is computed as:
                     <br><br>
-                    
+
                 </div>
+
                 <div class="text-center">
                     <img src="./img/cov.png" width="30%">
                 </div>
                 <br>
-		
-		        <div class="text-justify">
-                    The diagonal entries of the Covariance matrix, define a marginal variance vector σ = (σx, σy , σz ) at each grid vertex. The norm of this vector ∥σ ∥ is then a positive scalar that measures the local spatial uncertainty
-of the radiance field at each grid vertex. Through it, we can define <b>our spatial uncertainty field</b>:
+		<div class="text-justify">
+
+The diagonal entries of the Covariance matrix, define a marginal variance vector σ = (σx, σy , σz ) at each grid vertex. The norm of this vector ∥σ ∥ is then a positive scalar that measures the local spatial uncertainty
+            of the radiance field at each grid vertex. Through it, we can define <b>our spatial uncertainty field</b>
+            <br><br>
+
+                </div>
+		<br>
+                <div class="text-center">
+                    <img src="./img/unc.png" width="22%">
+                </div>
+                <br>
+		<div class="text-justify">
 
                     <br><br>
 
                 </div>
-                <div class="text-center">
-                    <img src="./img/unc.png" width="22%">
-                </div>
-            </div>
-        </div>	
-        <div class="row">
-	<div class="col-md-8 col-md-offset-2">
+		<br>
+        </div>
+
+    <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Results
                 </h3>
+                <div class="text-justify">
+                 Uncertainty Quantification results: We show correlation of uncertainty to absolute error of given NeRF in depth. Lower the area under the sparsification plot shows higher correlation. Please use the buttons for comparison of pixel ranks in sparsification process, between methods.
+            <br><br>
 
-        <div class="text-justify">
-                  Uncertainty Quantification results: We show correlation of uncertainty to absolute error of given NeRF in depth. Lower the area under the sparsification plot shows higher correlation. Please use the buttons for comparison of pixel ranks in sparsification process, between methods.
+                </div>
 
-        </div>
-<table style="width: 100%; text-align: center;">
+		<div class="text-justify">
+        <table style="width: 100%; text-align: center;">
   <tr >
     <td style="vertical-align: middle; padding: 10px; width: calc(8/12*25%);">
       <div style="position: relative; display: inline-block;">
@@ -288,13 +297,13 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
 </table>
 		<div class="text-justify">
                   Clean-up results:
-                    
+
                 </div>
 
 		<table>
     <tr>
         <td style="width: calc(8/12*16.67%);">
-            <video id="left-video" width="100%" height="auto" loop playsinline autoplay muted controls>
+            <video id="left-video" width="95%" height="auto" loop playsinline autoplay muted controls>
                 <source src="video/rgb_base.mp4" type="video/mp4">
             </video>
             <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
@@ -304,7 +313,7 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
         </td>
 
         <td style="width: calc(8/12*16.67%);">
-            <video id="right-video" width="100%" height="auto" loop playsinline autoplay muted controls>
+            <video id="right-video" width="95%" height="auto" loop playsinline autoplay muted controls>
                 <source src="video/uncertainty.mp4" type="video/mp4">
             </video>
             <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
@@ -312,9 +321,9 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
                 <button onclick="changeVideo('rgb_clean')">Clean</button>
             </div>
         </td>
-        <td style="width: 2%;"></td> <!-- Add some space between columns -->
+        <td style="width: 1%;"></td> <!-- Add some space between columns -->
         <td style="width: calc(8/12*16.67%);">
-            <video id="left-video-2" width="100%" height="auto" loop playsinline autoplay muted controls>
+            <video id="left-video-2" width="95%" height="auto" loop playsinline autoplay muted controls>
                 <source src="video/rgb_base_2.mp4" type="video/mp4">
             </video>
             <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
@@ -324,7 +333,7 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
         </td>
 
         <td style="width: calc(8/12*16.67%);">
-            <video id="right-video-2" width="100%" height="auto" loop playsinline autoplay muted controls>
+            <video id="right-video-2" width="95%" height="auto" loop playsinline autoplay muted controls>
                 <source src="video/uncertainty_2.mp4" type="video/mp4">
             </video>
             <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
@@ -332,9 +341,9 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
                 <button onclick="changeVideo2('rgb_clean')">Clean</button>
             </div>
         </td>
-        <td style="width: 2%;"></td> <!-- Add some space between columns -->
+        <td style="width: 1%;"></td> <!-- Add some space between columns -->
         <td style="width: calc(8/12*16.67%); ">
-            <video id="left-video-3" width="100%" height="auto" loop playsinline autoplay muted controls>
+            <video id="left-video-3" width="95%" height="auto" loop playsinline autoplay muted controls>
                 <source src="video/rgb_base_3.mp4" type="video/mp4">
             </video>
             <div class="buttons" style="vertical-align: middle; padding-left: 4%">
@@ -344,7 +353,7 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
         </td>
 
         <td style="width: calc(8/12*16.67%);">
-            <video id="right-video-3" width="100%" height="auto" loop playsinline autoplay muted controls>
+            <video id="right-video-3" width="95%" height="auto" loop playsinline autoplay muted controls>
                 <source src="video/uncertainty_3.mp4" type="video/mp4">
             </video>
             <div class="buttons" style="vertical-align: middle;  padding-left: 4%">
@@ -356,7 +365,7 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
 </table>
 
 		<table width="100%" style="table-layout:fixed"><tr><td style="text-align:center" width="33%">Picnic</td><td style="text-align:center" width="33%">Pikachu</td><td style="text-align:center" width="33%">Century</td></tr></table>
-           	
+
         	<br>
 
 
@@ -375,8 +384,8 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
             </tr>
         </table>
         </div>
-       
-            
+
+
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
@@ -393,7 +402,7 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
                 </div>
             </div>
         </div>
-	
+
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -407,6 +416,10 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
             </div>
         </div>
     </div>
+
+</div>
+
+
 
 <script>
     function changeVideo(videoName) {
@@ -500,5 +513,7 @@ of the radiance field at each grid vertex. Through it, we can define <b>our spat
 
     }
   </script>
+        
 
+	
 </body></html>
